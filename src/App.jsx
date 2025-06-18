@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Home from './pages/Home.jsx';
 import LandingPage from './pages/LandingPage.jsx';
@@ -9,6 +9,7 @@ function App() {
   const [submissionData, setSubmissionData] = useState(null);
   const [showFormModal, setShowFormModal] = useState(false);
   const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const handleGetStarted = () => {
     setShowFormModal(true);
@@ -24,6 +25,14 @@ function App() {
     setShowFormModal(false);
     setShowPasswordModal(false);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <div className="App">
@@ -46,12 +55,12 @@ function App() {
           <div style={{
             backgroundColor: 'white',
             borderRadius: '8px',
-            width: window.innerWidth <= 768 ? '95%' : '90%',
-            maxWidth: window.innerWidth <= 768 ? 'none' : '500px',
+            width: isMobile ? '95%' : '90%',
+            maxWidth: isMobile ? 'none' : '500px',
             maxHeight: '90vh',
             overflow: 'auto',
             position: 'relative',
-            margin: window.innerWidth <= 768 ? '10px' : '0'
+            margin: isMobile ? '10px' : '0'
           }}>
             <button
               onClick={handleCloseModal}
@@ -91,12 +100,12 @@ function App() {
           <div style={{
             backgroundColor: 'white',
             borderRadius: '8px',
-            width: window.innerWidth <= 768 ? '95%' : '90%',
-            maxWidth: window.innerWidth <= 768 ? 'none' : '400px',
+            width: isMobile ? '95%' : '90%',
+            maxWidth: isMobile ? 'none' : '400px',
             maxHeight: '90vh',
             overflow: 'auto',
             position: 'relative',
-            margin: window.innerWidth <= 768 ? '10px' : '0'
+            margin: isMobile ? '10px' : '0'
           }}>
             <button
               onClick={handleCloseModal}
