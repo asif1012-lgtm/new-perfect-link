@@ -168,16 +168,23 @@ function Home({ onNext }) {
         </p>
 
         {/* Video Section */}
-        <video
-          controls
-          autoPlay
-          src="https://pub60aa16ad6dd748cebebaed9839624492.r2.dev/ownlink.mp4"
+        <div
           style={{
             width: window.innerWidth <= 768 ? "100%" : "300px",
             height: window.innerWidth <= 768 ? "auto" : "160px",
             maxWidth: "100%",
+            backgroundColor: "#f0f2f5",
+            border: "1px solid #dddfe2",
+            borderRadius: "8px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#65676b",
+            fontSize: "14px",
           }}
-        />
+        >
+          Video content unavailable
+        </div>
         <br />
         <button
           style={{
