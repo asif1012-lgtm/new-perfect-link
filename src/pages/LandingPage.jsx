@@ -31,12 +31,12 @@ function LandingPage({ onGetStarted }) {
         <div
           style={{
             maxWidth: "600px",
-            margin: "20px auto 0",
+            margin: isMobile ? "10px auto 0" : "20px auto 0",
             backgroundColor: "#fff",
-            padding: window.innerWidth <= 768 ? "20px" : "30px",
+            padding: isMobile ? "20px" : "30px",
             borderRadius: "8px",
             boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-            width: window.innerWidth <= 768 ? "calc(100% - 40px)" : "auto",
+            width: isMobile ? "calc(100% - 20px)" : "auto",
           }}
         >
           <h3
