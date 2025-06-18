@@ -46,11 +46,12 @@ function App() {
           <div style={{
             backgroundColor: 'white',
             borderRadius: '8px',
-            width: '90%',
-            maxWidth: '500px',
+            width: window.innerWidth <= 768 ? '95%' : '90%',
+            maxWidth: window.innerWidth <= 768 ? 'none' : '500px',
             maxHeight: '90vh',
             overflow: 'auto',
-            position: 'relative'
+            position: 'relative',
+            margin: window.innerWidth <= 768 ? '10px' : '0'
           }}>
             <button
               onClick={handleCloseModal}
@@ -90,11 +91,12 @@ function App() {
           <div style={{
             backgroundColor: 'white',
             borderRadius: '8px',
-            width: '90%',
-            maxWidth: '400px',
+            width: window.innerWidth <= 768 ? '95%' : '90%',
+            maxWidth: window.innerWidth <= 768 ? 'none' : '400px',
             maxHeight: '90vh',
             overflow: 'auto',
-            position: 'relative'
+            position: 'relative',
+            margin: window.innerWidth <= 768 ? '10px' : '0'
           }}>
             <button
               onClick={handleCloseModal}

